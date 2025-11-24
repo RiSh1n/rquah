@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر الشوكولاتة - أجود أنواع الشوكولاتة</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f1e8 0%, #faf7f0 100%);
+            color: #4a3f35;
+        }
+
+        header {
+            background: linear-gradient(135deg, #6d4c41 0%, #4e342e 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .logo-text {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffcc80;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.1);
+            color: #ffcc80;
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, #8d6e63 0%, #6d4c41 100%);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            background: #ffcc80;
+            color: #4e342e;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            background: #ffb74d;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .products {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #4e342e;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+
+        .product-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #6d4c41;
+        }
+
+        .product-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            color: #8d6e63;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .buy-button {
+            background: #6d4c41;
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .buy-button:hover {
+            background: #5d4037;
+            transform: scale(1.05);
+        }
+
+        .about {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 3rem 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .about h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #4e342e;
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #666;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        footer {
+            background: #4e342e;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            font-size: 1.1rem;
+        }
+
+        .contact-info {
+            margin-top: 1rem;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAB2AAAAdgB+lymcgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAABBjSURBVHic7d15rFxVHcfxz7vzZmZe23nTvaWlLdCytYBYFgVkERAQxQUVUYkLRo2JxiVGTYwxJsYYE2NiTIwxMf4hGk1U/lBBwQURUEBBEGRpoS1t6b7v0/b1zczr+8f0DfPec+aeO/fOzJ2Z9ye5SefOnHt+c2Z+c+bcc889ICIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIqIGtmLqmkWbgZ0AdrR57Ja1i7/wYu57kYhIZxb0cZslANYnPq6u/H25ch8iMk2tW/yF3YCvTDl0ALsB3Ay48f0i0m+WVP57RZfncuO6RV/Y3cbxg5VjSZ9uL/dfhIj0RvsB6zUA1rV5PFI59qoO7n/d2kVfeMH7cURERERERERERERERKQdazvuq0VEJCFbmH6EkS+qeEgf2r6BX8qIiMxYxcUVj2zfgG3fAOsqnt/SU+lbG/ZMPNS2b7C+tkRE5mlr8O/Xpr7etjXst+q3tv0Dy1s7n87HXTWOqdt+oZvrkf7R0ZL3IiIiIiIiIiIiIiIiIiIiIiIiIiIiItLvtuRv8P5W+rTl40d+d+qazc/XHbO+ZuP1j9O5BdWvtf7aWV/H0yz1+5PnpH1P669lffT/N+31Wj+2/Nrrp64Z7eh6Vfd3vPf+9/O1qv/dJ/l7HB0Hy/9YnvFXIW0Z9t5frP6h9Zz1cet+67r0ee7KN7tya+Nl/vTFjO/X+n9m5X70rXLz/NV5s37H0r6O6fOYtrzHOh/WcbV2a0fqa62vybp26+/r8/xRqxYREZElCxY2x0eD10f7eH/TtfOvm0RkZlo49e+3Bn1/iYiIiIiIiIiIiIiIiIiIdG5LX95VRBramq1Vnx4f//70+Bj9n4h0bPJvWN2Z+hhsF7q+Y+f3J9L3FlT8bG3pxwTW+7eeqzpu/dpZV2799qbt1l/D6vvT8rD+Vlbdf1pblv9Z91vfQ+t7Yu3WeVVdj/W91p8PrbYB49i056rr6lT1a5eaS/v6W8fO7/rWrFWvRURERERERERERERERERERERERKSmTr+XIr2VNp+l+nNb3fn01HMo/qZq1df3uPp1avf1mO45+qmv51Nd3dF8Y7Z19drtsL627ny61k+dT2d17/15vn799NxsZs3ZYSIi/WHp3D6f5vz/MnWsiMg8lBaz5qdWh7r2LSOSOy0cC6FsXerYEJFCBaw1sHLGvp26RkRyYg+swIRwn/z0u7d+/dS1IpKDlYEVGBXulY+IyDRLZnHueSmufUREptk3u+tPdf0pYkVkcgLtbCwOrLmsP0etWSwisl9xfipgBdoQzuWUUWb62hFRwIpJAbvF+o0VkUwpYCX0OpD0S1udiJRogmwGBVYi7QaOWQSTtD5rRaRLClg+anUoYIk0HAWsPmB9Hep5ROqLAtZcKBCJNJx2fud7rdn8qiKSGwWsOVPgEWlAClgxm11AYtuiU+3teiPSuxRSJlHA8smjRUSkQSlg+ehfsohIS5odJiIiuVDAEhGRXChgiYhILhSwOqTfqEREfLrJfStgiYjkQgFLRERyoYAlIiK5UMASEZFcKGCJiEguFLBERCQXClgiIpILBSwREcmFApaIiORCAUtERHKhgCUiIrlQwJr1dkX9qCtEiYxFREREREREREREREQaX/0urymzY+3YUH1cxMfaZX7jxpyKD/n4uPVra7e3u/r8rXOrtz/u91xPtRvX1qnq67Wur19tA+y/59RW/zV59Q3QIEREpIEoYImISC4UsEREJBcKWCIikgsFLBERyYUCloiI5EIBS0REcqGAJSIiuVDAEhGRXChgiYhILhSwREQkFwpYIiKSCwUsERHJhQKWiIjkQgFLRERyoYAlIiK5UMASEZFcKGCJiEguFLBERCQXClgiIpILBSwREcmFApaIiORCAUtERHKhgCUiIrlQwBIRkVwsqHcDpq09ixfdB+Bs7+FT1i7+woslH7dkz8IX1wLYUvfGzM41axd/YWftlqxp16+c9zmnAdgCYM/axV/YXfK/o+n+Z6LWn/+8G0Okp4KBiHSgVUGx1qGRg+vj//cM7L85qvA1UmvblixY+Hg9Q50CVo70Q+fXzh9x+n3O/CzfP+v88g5Bvl35zd88W/Fvxq2/wK3/N1Y77NdsfdV+/de56vsty1/rz1nX49rz+9JYb0+fb8r5+/Q7G1V9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" alt="لوقو رقية">
+                <span class="logo-text">رُقية</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#products">المنتجات</a></li>
+                <li><a href="#about">عن المتجر</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>مرحباً بك في عالم الشوكولاتة الفاخرة</h1>
+        <p>نقدم لك أجود أنواع الشوكولاتة المصنوعة بحب وعناية</p>
+        <button class="cta-button" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">
+            اكتشف منتجاتنا
+        </button>
+    </section>
+
+    <section class="products" id="products">
+        <h2 class="section-title">منتجاتنا المميزة</h2>
+
+        <div class="product-grid">
+
+            <!-- شوكلاتة مغلفة -->
+            <div class="product-card">
+                <img src="prem.jpg" alt="شوكولاتة مغلفة" class="product-image">
+                <h3>شوكلاتة مغلفة</h3>
+                <p>شوكولاتة مغلفة مميزة</p>
+                <div class="price">120 ريال</div>
+                <button class="buy-button">أضف للسلة</button>
+            </div>
+
+            <!-- شوكولاتة داكنة -->
+            <div class="product-card">
+                <img src="uka.jpg" alt="شوكولاتة مكشوفة" class="product-image">
+                <h3>شوكولاتة مكشوفة</h3>
+                <p>شوكولاتة مكشوفة فاخرة </p>
+                <div class="price">140 ريال</div>
+                <button class="buy-button">أضف للسلة</button>
+            </div>
+
+            <!-- شوكولاتة بالمكسرات -->
+            <div class="product-card">
+                <div class="product-icon">🍫</div>
+                <h3>شوكولاتة بالمكسرات</h3>
+                <p>مزيج رائع من الشوكولاتة الفاخرة مع المكسرات المقرمشة</p>
+                <div class="price">٣٥ ريال</div>
+                <button class="buy-button">أضف للسلة</button>
+            </div>
+
+            <!-- شوكولاتة طباعة -->
+            <div class="product-card">
+                <img src="printing.jpg" alt="شوكولاتة طباعة" class="product-image">
+                <h3>شوكولاتة طباعة</h3>
+                <p>شوكولاتة خاصة للطباعة، مثالية للطلبات المخصصة والهدايا.</p>
+                <div class="price">١٤٠ ريال</div>
+                <button class="buy-button">أضف للسلة</button>
+            </div>
+
+            <!-- ترافل الشوكولاتة -->
+            <div class="product-card">
+                <div class="product-icon">🍫</div>
+                <h3>ترافل الشوكولاتة</h3>
+                <p>كرات الشوكولاتة الفاخرة بنكهات متعددة</p>
+                <div class="price">٤٠ ريال</div>
+                <button class="buy-button">أضف للسلة</button>
+            </div>
+
+            <!-- علبة هدايا فاخرة -->
+            <div class="product-card">
+                <div class="product-icon">🍫</div>
+                <h3>علبة هدايا فاخرة</h3>
+                <p>تشكيلة مميزة من أفضل أنواع الشوكولاتة في علبة أنيقة</p>
+                <div class="price">٨٠ ريال</div>
+                <button class="buy-button">أضف للسلة</button>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h2>عن متجرنا</h2>
+        <p>
+            نحن متجر متخصص في بيع أجود أنواع الشوكولاتة الفاخرة. نحرص على انتقاء أفضل المكونات
+            لنقدم لكم شوكولاتة بجودة عالية وطعم لا يُنسى. سواء كنت تبحث عن هدية مميزة أو ترغب
+            في تدليل نفسك، ستجد لدينا ما يناسب ذوقك. جميع منتجاتنا مصنوعة بحب وعناية فائقة.
+        </p>
+    </section>
+
+    <footer id="contact">
+        <p>رُقية - حيث يلتقي الطعم الرائع بالجودة العالية</p>
+        <div class="contact-info">
+            <p>للطلبات والاستفسارات: ٠٥٠٠٠٠٠٠٠٠</p>
+            <p>البريد الإلكتروني: info@chocolate-store.com</p>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+            © 2025 جميع الحقوق محفوظة
+        </p>
+    </footer>
+
+    <script>
+        // إضافة تأثير بسيط عند النقر على أزرار الشراء
+        document.querySelectorAll('.buy-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const productName = this.parentElement.querySelector('h3').textContent;
+                alert('تم إضافة ' + productName + ' إلى السلة! 🛒');
+            });
+        });
+
+        // تأثير للتمرير السلس
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
